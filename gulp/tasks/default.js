@@ -2,7 +2,7 @@ import gulp from 'gulp'
 import runSequence from 'run-sequence'
 
 const defaultTask = () => (
-  runSequence('views')
+  runSequence('styles', 'views')
 )
 
 gulp.task('default', defaultTask)

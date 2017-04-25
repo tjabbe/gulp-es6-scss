@@ -1,0 +1,12 @@
+h1 {
+  color: red;
+  display: flex;
+
+  &::after {
+    content:'';
+    display:block;
+    width: 20px;
+    height: 20px;
+    background: black;
+  }
+}
