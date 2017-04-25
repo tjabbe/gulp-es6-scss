@@ -1,0 +1,13 @@
+{
+  "name": "gulp-es6-scss",
+  "version": "1.0.0",
+  "description": "Starter",
+  "main": "index.js",
+  "repository": "https://github.com/tjabbe/gulp-es6-scss.git",
+  "author": "tjabbe <martin.goutry@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "require-dir": "^0.3.1"
+  }
+}
