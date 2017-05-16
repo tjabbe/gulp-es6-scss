@@ -6,6 +6,37 @@ module.exports = {
   appSrc: APP_SRC,
   appDest: APP_DEST,
 
+  bsServer: {
+    //proxy: 'your-proxy.dev'
+    server: {
+      baseDir: './build'
+    }
+  },
+
+  fonts: {
+    src: APP_SRC + '/assets/fonts/*',
+    dest: APP_DEST + '/fonts/'
+  },
+
+  icons: {
+    src: APP_SRC + '/assets/icons/*.svg',
+    dest: APP_DEST + '/img/',
+    spriteConfig: {
+      mode: {
+        symbol: {
+          render: {
+            css: false,
+            scss: false
+          },
+          dest: 'sprite',
+          prefix: '.svg--%s',
+          sprite: 'sprite.svg',
+          example: false
+        },
+      }
+    }
+  },
+
   images: {
     src: APP_SRC + '/assets/images/**/*.{jpg,png,gif,svg}',
     dest: APP_DEST + '/img/',
