@@ -6,6 +6,15 @@ module.exports = {
   appSrc: APP_SRC,
   appDest: APP_DEST,
 
+  images: {
+    src: APP_SRC + '/assets/images/**/*.{jpg,png,gif,svg}',
+    dest: APP_DEST + '/img/',
+    opts: {
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}]
+    }
+  },
+
   scripts: {
     watchSrc: APP_SRC + '/assets/scripts/**/*.js',
     src: APP_SRC + '/assets/scripts/app.js',
