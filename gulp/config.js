@@ -6,6 +6,13 @@ module.exports = {
   appSrc: APP_SRC,
   appDest: APP_DEST,
 
+  scripts: {
+    watchSrc: APP_SRC + '/assets/scripts/**/*.js',
+    src: APP_SRC + '/assets/scripts/app.js',
+    vendorSrc: APP_SRC + '/assets/scripts/vendors/*.js',
+    dest: APP_DEST + '/js/'
+  },
+
   styles: {
     watchSrc: APP_SRC + '/assets/styles/**/*.scss',
     src: APP_SRC + '/assets/styles/app.scss',
