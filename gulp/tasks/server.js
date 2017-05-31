@@ -11,6 +11,7 @@ const serverTask = () => {
   gulp.watch(icons.src, ['icons', reload])
   gulp.watch(images.src, ['images', reload])
   gulp.watch(scripts.vendorSrc, ['scripts:vendors', reload])
+  gulp.watch(scripts.watchSrc, ['jshint', reload])
   gulp.watch(scripts.watchSrc, ['scripts:app', reload])
   gulp.watch(styles.watchSrc, ['styles', reload])
   gulp.watch(views.src, ['views', reload])

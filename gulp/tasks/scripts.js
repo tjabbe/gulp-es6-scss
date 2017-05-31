@@ -4,6 +4,7 @@ import concat from 'gulp-concat'
 import uglify from 'gulp-uglify'
 import sourcemaps from 'gulp-sourcemaps'
 import notify from 'gulp-notify'
+import jshint from 'gulp-jshint'
 import browserify from 'browserify'
 import babelify from 'babelify'
 import options from 'minimist'
@@ -12,6 +13,23 @@ import buffer from 'vinyl-buffer'
 import { scripts } from '../config'
 
 const env  = options(process.argv.slice(2))
+
+const jshintTask = () => {
+  gulp.src(scripts.watchSrc)
+    .pipe(jshint('.jshintrc'))
+    .pipe(notify(function(file){
+      if(file.jshint.success){
+        return false
+      }
+
+      var errors = file.jshint.results.map(function(data){
+        if(data.error){
+          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason
+        }
+      }).join('\n')
+      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors
+    }))
+}
 
 const vendorsTask = () => (
   gulp.src(scripts.vendorSrc)
@@ -41,10 +59,12 @@ const scriptsTask = () => {
 
 gulp.task('scripts:vendors', vendorsTask)
 gulp.task('scripts:app', scriptsTask)
+gulp.task('jshint', jshintTask)
 
 export default {
   vendorsTask,
-  scriptsTask
+  scriptsTask,
+  jshintTask
 }
 
 
